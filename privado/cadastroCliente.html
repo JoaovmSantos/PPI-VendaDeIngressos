@@ -18,6 +18,11 @@
                     <div class="card-body">
                         <form id="cadastroForm" action="/cadastrar" method="POST" novalidate>
                             <div class="mb-3">
+                                <label for="usuario" class="form-label">Nome de Usuário:</label>
+                                <input type="text" class="form-control" id="usuario" name="usuario" required>
+                                <div class="invalid-feedback">Por favor, insira o nome de usuário.</div>
+                            </div>
+                            <div class="mb-3">
                                 <label for="nome" class="form-label">Nome Completo:</label>
                                 <input type="text" class="form-control" id="nome" name="nome" required>
                                 <div class="invalid-feedback">Por favor, insira o nome.</div>
@@ -64,6 +69,5 @@
 
         form.addEventListener('submit', validar);
     </script>
-
 </body>
 </html>
