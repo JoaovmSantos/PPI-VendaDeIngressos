@@ -4,14 +4,13 @@ import path from 'path';
 import session from 'express-session';
 import autenticar from './seguranca/autenticar.js';
 
-const host='0.0.0.0'; //O ip 0.0.0.0 representa todas as interfaces (placas de rede) do computador onde essa aplicação for executada
-const porta = 3000;  //Porta identifica um programa em execução no host hospedeiro
+const host='localhost'; 
+const porta = 3000;  
 
 const app = express();
 
-app.use(express.urlencoded({extended: true})); //biblioteca qs
+app.use(express.urlencoded({extended: true})); 
 
-//gerencie uma sessão como sendo uma espécie de memória adquirida pelo servidor para lembrar com quem ele conversa
 app.use(session({
     secret: 'M1nH4Ch4v3S3cr3t4',
     resave: false,
@@ -31,6 +30,28 @@ app.post('/login', (requisicao, resposta)=>{
     else{
         resposta.redirect('/login.html');
     }
+})
+
+app.post('/cadastrar', (req, res)=>{
+  const usuario = req.body.usuario;
+  const senha = req.body.senha;
+  if(usuario && senha && usuario === 'Joao' && senha === '1234'){
+    req.session.usuarioLogado = true;
+    res.redirect('/ingressosMais.html');
+  }else{
+    res.redirect('/cadastroCliente.html')
+  }
+})
+
+app.get('/ingressosMais', (req, res)=>{
+  const usuario = req.body.usuario;
+  const senha = req.body.senha;
+  if(usuario && senha && usario === 'Joao' && senha === '1234'){
+    req.session.usuarioLogado = true;
+    res.redirect('/musicfest.html');
+  }else{
+    res.redirect('ingressoMais.html');
+  }
 })
 
 //O express oferece funcionalidades para permitir que conteúdo estático seja fornecido
