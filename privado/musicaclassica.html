@@ -12,7 +12,7 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 festival-img">
                 <img src="images/festival2.jpg" class="img-fluid" alt="Música Clássica">
             </div>
             <div class="col-md-6">
@@ -23,23 +23,27 @@
                             <span><box-icon type='regular' name='map'></box-icon></span><span> Osvaldo Cruz - SP</span>
                             <p class="card-text"><box-icon type='regular' name='calendar'></box-icon> 23/03/2024 | 19:00</p>
                             <p class="card-text pb-3">As melhores orquestras reunidas em um espetáculo inesquecível! Desfrute de uma noite sublime com as composições clássicas mais renomadas, executadas por músicos talentosos em um ambiente elegante e acolhedor. Garanta seu ingresso e vivencie a grandiosidade da Música Clássica!</p>
-                            <div class="mb-3">
+                            <div class="mb-3 quantidade">
                                 <label for="quantidadeIngressos" class="form-label">Quantidade de Ingressos:</label>
                                 <input type="number" id="quantidadeIngressos" class="form-control" value="1" min="1">
                             </div>
+                            <p id="quantidadeDisponivel">Quantidade disponível: <span id="quantidadeAtual">150</span></p> 
+    
+                            <p id="valorUnitario" style="display: none;">119.90</p> 
+    
+                            <p id="valorTotal" class="card-text">Total: R$ 119.90</p>
             
-                            <p id="valorTotal" class="card-text">Total: R$ 35.00</p>
-            
-                            <a href="/comprar/musicaclassica" class="btn btn-primary">Comprar Ingressos</a>
+                            <a href="" id="comprarIngressos" class="btn btn-primary">Comprar Ingressos</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="/ingressosMais.html" class="btn btn-danger mt-2">voltar</a>
     </div>
 
     <script src="scripts/compra.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 </body>
