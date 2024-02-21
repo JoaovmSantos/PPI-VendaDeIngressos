@@ -43,17 +43,6 @@ app.post('/cadastrar', (req, res)=>{
   }
 })
 
-app.get('/ingressosMais', (req, res)=>{
-  const usuario = req.body.usuario;
-  const senha = req.body.senha;
-  if(usuario && senha && usario === 'Joao' && senha === '1234'){
-    req.session.usuarioLogado = true;
-    res.redirect('/musicfest.html');
-  }else{
-    res.redirect('ingressoMais.html');
-  }
-})
-
 //O express oferece funcionalidades para permitir que conteúdo estático seja fornecido
 app.use(express.static(path.join(process.cwd(), 'publico')));
 
