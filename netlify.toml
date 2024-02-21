@@ -1,0 +1,11 @@
+[build]
+  command = "node index.js"
+  functions = "funcoes/"
+  publish = "publico/"
+  base = "publico/"
+
+[[redirects]]
+  from = "/login/*"
+  to = "/publico/login.html"
+  status = 200
+  force = true
