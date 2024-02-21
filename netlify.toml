@@ -2,7 +2,7 @@
   command = "node index.js"
   functions = "funcoes/"
   publish = "publico/"
-  base = "publico"
+  base = "/"
 
 [[redirects]]
   from = "/login/*"
