@@ -1,5 +1,5 @@
 {
-  "name": "Venda de Ingressos",
+  "name": "vendaingressos",
   "version": "1.0.0",
   "description": "Aplicação Web com Node.js para venda de ingressos.",
   "main": "index.js",
