@@ -1,16 +1,17 @@
 {
-  "name": "ppim1aulaaovivo",
+  "name": "Venda de Ingressos",
   "version": "1.0.0",
-  "description": "Projeto exemplo aula ao vivo 1 PPI ads ead",
+  "description": "Aplicação Web com Node.js para venda de ingressos.",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "node build.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rfsgoncalves/PPIM1AulaAoVivo.git"
+    "url": "git+https://github.com/JoaovmSantos/PPI-VendaDeIngressos.git"
   },
   "keywords": [
     "nodejs",
@@ -18,12 +19,12 @@
     "javascript",
     "programação"
   ],
-  "author": "Prof. Renato.",
+  "author": "João Victor Martins dos Santos",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rfsgoncalves/PPIM1AulaAoVivo/issues"
+    "url": "https://github.com/JoaovmSantos/PPI-VendaDeIngressos/issues"
   },
-  "homepage": "https://github.com/rfsgoncalves/PPIM1AulaAoVivo#readme",
+  "homepage": "https://github.com/JoaovmSantos/PPI-VendaDeIngressos#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "express": "^4.18.2",
