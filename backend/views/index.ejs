@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Eventos</title>
+</head>
+<body>
+
+    <h1>Lista de Eventos</h1>
+
+    <% if (eventos && eventos.length > 0) { %>
+        <ul>
+            <% eventos.forEach(evento => { %>
+                <li><%= evento.nome %> - <%= evento.data %></li>
+                <!-- Adicione outros campos do evento conforme necessário -->
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>Nenhum evento disponível.</p>
+    <% } %>
+
+    <a href="/eventos/novo">Criar Novo Evento</a>
+
+</body>
+</html>

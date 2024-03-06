@@ -1,53 +1,29 @@
-import express from 'express';
-import process from 'process';
-import path from 'path';
-import session from 'express-session';
-import autenticar from './seguranca/autenticar.js';
-
-const host='localhost'; 
-const porta = 3000;  
+const express = require('express');
+const path = require('path');
+const sequelize = require('./backend/config/database.js');
+const eventosRoutes = require('./backend/routes/eventos.js');
 
 const app = express();
+const PORT = 3000;
 
-app.use(express.urlencoded({extended: true})); 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.use(session({
-    secret: 'M1nH4Ch4v3S3cr3t4',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {  
-        maxAge: 60 * 1000 * 15
-    }
-}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/login', (requisicao, resposta)=>{
-    const usuario = requisicao.body.usuario;
-    const senha   = requisicao.body.senha;
-    if (usuario && senha && usuario === 'Joao' && senha === '1234'){
-        requisicao.session.usuarioLogado = true;
-        resposta.redirect('/cadastroCliente.html');
-    }
-    else{
-        resposta.redirect('/login.html');
-    }
-})
+// Redirecionar para a página de eventos na raiz
+app.get('/', (req, res) => {
+  res.redirect('/eventos');
+});
 
-app.post('/cadastrar', (req, res)=>{
-  const usuario = req.body.usuario;
-  const senha = req.body.senha;
-  if(usuario && senha && usuario === 'Joao' && senha === '1234'){
-    req.session.usuarioLogado = true;
-    res.redirect('/ingressosMais.html');
-  }else{
-    res.redirect('/cadastroCliente.html')
-  }
-})
+app.use('/eventos', eventosRoutes);
 
-//O express oferece funcionalidades para permitir que conteúdo estático seja fornecido
-app.use(express.static(path.join(process.cwd(), 'publico')));
+sequelize.sync().then(() => {
+  console.log('Conexão com o banco de dados estabelecida.');
 
-app.use(autenticar, express.static(path.join(process.cwd(), 'privado')));
-
-app.listen(porta, host, ()=>{
-    console.log(`Servidor escutando em http://${host}:${porta}`);
-})
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+  });
+});
